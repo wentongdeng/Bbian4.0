@@ -1,9 +1,9 @@
 //
 //  ViewController.h
-//  SoolyMomentCell
+//  Bbian
 //
-//  Created by SoolyChristina on 2016/11/25.
-//  Copyright © 2016年 SoolyChristina. All rights reserved.
+//  Created by dengwt on 2017/3/14.
+//  Copyright © 2017年 dengwt. All rights reserved.
 //
 
 #import <UIKit/UIKit.h>
