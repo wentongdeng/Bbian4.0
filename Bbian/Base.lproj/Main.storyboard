@@ -336,7 +336,7 @@
         <!--便态-->
         <scene sceneID="vIp-6G-0Og">
             <objects>
-                <viewController id="Zuo-ZN-gNA" customClass="TrendsPageViewController" sceneMemberID="viewController">
+                <viewController id="Zuo-ZN-gNA" customClass="ViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="xG6-gc-xZA"/>
                         <viewControllerLayoutGuide type="bottom" id="39U-yd-xN6"/>
@@ -344,54 +344,6 @@
                     <view key="view" contentMode="scaleToFill" id="wqq-ff-OvU">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="T5u-ju-2GV">
-                                <rect key="frame" x="0.0" y="72" width="375" height="44"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </searchBar>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ubd-AG-6d9">
-                                <rect key="frame" x="16" y="132" width="63" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.71939299718903249" blue="0.528788479282843" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="方便"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nfE-C4-6RC">
-                                <rect key="frame" x="87" y="132" width="63" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.71939299720000005" blue="0.52878847929999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="共享"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="voV-ID-BSK">
-                                <rect key="frame" x="158" y="132" width="63" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.71939299720000005" blue="0.52878847929999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="维修打印"/>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GGh-hZ-fBL">
-                                <rect key="frame" x="229" y="132" width="63" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.71939299720000005" blue="0.52878847929999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="更多"/>
-                                <connections>
-                                    <segue destination="Wm2-8k-Mxw" kind="push" id="ygz-kD-WZe"/>
-                                </connections>
-                            </button>
-                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KXn-ng-38g">
-                                <rect key="frame" x="300" y="132" width="63" height="53"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" red="1" green="0.71939299720000005" blue="0.52878847929999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <state key="normal" title="动态"/>
-                                <connections>
-                                    <segue destination="cSt-aR-Q9z" kind="push" id="13g-AV-PrI"/>
-                                </connections>
-                            </button>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" fixedFrame="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pgU-yT-wnY">
-                                <rect key="frame" x="0.0" y="193" width="375" height="425"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                            </tableView>
-                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <tabBarItem key="tabBarItem" title="便态" id="NWV-GQ-yuc"/>
@@ -400,10 +352,10 @@
             </objects>
             <point key="canvasLocation" x="1836" y="489"/>
         </scene>
-        <!--View Controller-->
+        <!--Trends Page View Controller-->
         <scene sceneID="tg8-SK-ohc">
             <objects>
-                <viewController id="Wm2-8k-Mxw" sceneMemberID="viewController">
+                <viewController id="Wm2-8k-Mxw" customClass="TrendsPageViewController" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="JVy-1L-nmh"/>
                         <viewControllerLayoutGuide type="bottom" id="otw-1n-KQj"/>
@@ -411,13 +363,72 @@
                     <view key="view" contentMode="scaleToFill" id="cbc-SD-cpQ">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <searchBar contentMode="redraw" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="26v-tZ-Kdq">
+                                <rect key="frame" x="8" y="66" width="288" height="44"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="GL6-C4-2fp">
+                                <rect key="frame" x="8" y="110" width="63" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.75687168801903981" blue="0.49195808962785026" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="便民"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="onx-Ny-Ghn">
+                                <rect key="frame" x="79" y="110" width="63" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.75687168800000004" blue="0.49195808959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="共享"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="bQl-Pl-YSh">
+                                <rect key="frame" x="150" y="110" width="63" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.75687168800000004" blue="0.49195808959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="维修"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="flp-VJ-RsZ">
+                                <rect key="frame" x="296" y="110" width="63" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.75687168800000004" blue="0.49195808959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="更多"/>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Zte-YB-w6r">
+                                <rect key="frame" x="296" y="66" width="63" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.75687168800000004" blue="0.49195808959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="搜索"/>
+                            </button>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="iBO-Ov-hBA">
+                                <rect key="frame" x="0.0" y="157" width="375" height="502"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BlJ-PF-s90">
+                                <rect key="frame" x="225" y="110" width="63" height="39"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" red="1" green="0.75687168800000004" blue="0.49195808959999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <state key="normal" title="游玩"/>
+                            </button>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
                     <navigationItem key="navigationItem" id="wxu-y9-4Xq"/>
+                    <connections>
+                        <outlet property="bianM" destination="GL6-C4-2fp" id="eOc-hB-DXK"/>
+                        <outlet property="convenientButton" destination="GL6-C4-2fp" id="OWg-XP-KSL"/>
+                        <outlet property="maintenanceButton" destination="bQl-Pl-YSh" id="j4G-dt-J6S"/>
+                        <outlet property="mapView" destination="iBO-Ov-hBA" id="fKF-xU-PeF"/>
+                        <outlet property="moreButton" destination="flp-VJ-RsZ" id="Pm9-XZ-IPn"/>
+                        <outlet property="playButton" destination="BlJ-PF-s90" id="e2g-Nr-hFa"/>
+                        <outlet property="search" destination="26v-tZ-Kdq" id="bib-Jp-PXS"/>
+                        <outlet property="searchButton" destination="Zte-YB-w6r" id="7oH-mz-kZU"/>
+                        <outlet property="share" destination="onx-Ny-Ghn" id="P8Q-Xh-eJB"/>
+                        <outlet property="shareButton" destination="onx-Ny-Ghn" id="tAw-5e-uhG"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="VPO-xb-f2c" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2774" y="489"/>
+            <point key="canvasLocation" x="2773.5999999999999" y="488.90554722638683"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="El8-IB-SbK">

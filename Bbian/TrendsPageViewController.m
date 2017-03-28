@@ -9,6 +9,14 @@
 #import "TrendsPageViewController.h"
 
 @interface TrendsPageViewController ()
+@property (strong, nonatomic) IBOutlet UISearchBar *search;
+@property (strong, nonatomic) IBOutlet UIButton *searchButton;
+@property (strong, nonatomic) IBOutlet UIButton *shareButton;
+@property (strong, nonatomic) IBOutlet UIButton *convenientButton;
+@property (strong, nonatomic) IBOutlet UIButton *maintenanceButton;
+@property (strong, nonatomic) IBOutlet UIButton *playButton;
+@property (strong, nonatomic) IBOutlet UIButton *moreButton;
+@property (strong, nonatomic) IBOutlet UIImageView *mapView;
 
 @end
 

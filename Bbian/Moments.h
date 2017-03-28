@@ -7,7 +7,7 @@
 //  数据模型
 
 #import <Foundation/Foundation.h>
-
+#import "ReceivefromServer.h"
 @interface Moments : NSObject
 
 @property (nonatomic, copy) NSString *name;
@@ -17,10 +17,9 @@
 @property (nonatomic, copy) NSString *comment_count;
 @property (nonatomic, copy) NSString *like_count;
 @property (nonatomic, strong) NSArray *photos;
-
 - (instancetype)initWithDic:(NSDictionary *)dic;
 + (instancetype)initWithDic:(NSDictionary *)dic;
 
-+ (NSMutableArray *)moments;
++ (NSMutableArray *)moments:(NSString*)url;
 
 @end

@@ -18,17 +18,24 @@
 
 @property (nonatomic,strong) NSMutableArray *moments;      //数据模型
 @property (nonatomic,strong) NSMutableArray *momentFrames; //ViewModel(包含cell子控件的Frame)
-
+@property (nonatomic,strong)NSString *contentURL;
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    [self setUI];
+    UIButton* rightButton = [[UIButton alloc]initWithFrame:CGRectMake(0,0,30,30)];
+    [rightButton addTarget:self action:@selector(trends)forControlEvents:UIControlEventTouchUpInside];
+    UIBarButtonItem*rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightButton];
+    self.navigationItem.rightBarButtonItem= rightItem;
+    //注意顺序
     [self setData];
+    [self setUI];
 }
-
+-(void)trends{
+    
+}
 - (void)setUI{
     self.title = @"便便";
     //设置navigationBar不透明
@@ -38,17 +45,18 @@
     //导航条颜色
     self.navigationController.navigationBar.barTintColor = iCodeNavigationBarColor;
     self.view.backgroundColor = [UIColor whiteColor];
+    //输入URL
     [self.view addSubview:self.tableView];
 }
 
 - (void)setData{
-    
+    _contentURL=@"http://localhost:8080/Bbian";
 }
 
 - (NSMutableArray *)moments{
     if (!_moments) {
         _moments = [NSMutableArray array];
-        _moments = [Moments moments];
+        _moments = [Moments moments:_contentURL];
     }
     return _moments;
 }
@@ -79,6 +87,7 @@
         _tableView.backgroundColor = [UIColor grayColor];
         _tableView.backgroundColor = iCodeTableviewBgColor;
         //下拉刷新
+        //怎么样传递参数
         _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
         [_tableView.mj_header beginRefreshing];
     }

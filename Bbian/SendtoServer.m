@@ -29,7 +29,7 @@
         
         NSData *latitude=[[NSString stringWithFormat:@"%f",coordinate.latitude]dataUsingEncoding:NSUTF8StringEncoding];
         NSData *longitude=[[NSString stringWithFormat:@"%f",coordinate.longitude]dataUsingEncoding:NSUTF8StringEncoding];
-        [FormData appendPartWithFileData:data name:title fileName:[NSString stringWithFormat:@"%@.jpg",title] mimeType:@"image/jpeg"];
+        [FormData appendPartWithFileData:data name:@"image" fileName:[NSString stringWithFormat:@"%@.jpg",title] mimeType:@"image/jpeg"];
         [FormData appendPartWithFormData:des name:title];
         [FormData appendPartWithFormData:latitude name:@"latitude"];
         [FormData appendPartWithFormData:longitude name:@"longitude"];

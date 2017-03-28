@@ -18,10 +18,8 @@
     
     manager.requestSerializer=[AFHTTPRequestSerializer serializer];
     manager.responseSerializer=[AFHTTPResponseSerializer serializer];
-    //开始上传
     //用一个变量去接受结果分析结果然后返回yes or no
     [manager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>_Nonnull FormData) {
-        //插入图片
         
         }success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
             NSLog(@"接收成功！！");
