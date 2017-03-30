@@ -11,10 +11,10 @@
 #import "Moments.h"
 #import "MomentsTableViewCell.h"
 #import "MJRefresh.h"
-
+#import "TrendsPageViewController.h"
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic,strong) UITableView *tableView;
+@property (nonatomic,strong)IBOutlet UITableView *tableView;
 
 @property (nonatomic,strong) NSMutableArray *moments;      //数据模型
 @property (nonatomic,strong) NSMutableArray *momentFrames; //ViewModel(包含cell子控件的Frame)
@@ -25,26 +25,26 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    UIButton* rightButton = [[UIButton alloc]initWithFrame:CGRectMake(0,0,30,30)];
-    [rightButton addTarget:self action:@selector(trends)forControlEvents:UIControlEventTouchUpInside];
-    UIBarButtonItem*rightItem = [[UIBarButtonItem alloc]initWithCustomView:rightButton];
-    self.navigationItem.rightBarButtonItem= rightItem;
+    
+    
+
     //注意顺序
     [self setData];
     [self setUI];
 }
--(void)trends{
-    
+-(IBAction)trends{
+    TrendsPageViewController *trends=[[TrendsPageViewController alloc]init];
+    [self.navigationController pushViewController:trends animated:YES];
 }
 - (void)setUI{
-    self.title = @"便便";
-    //设置navigationBar不透明
-    self.navigationController.navigationBar.translucent = NO;
-    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-    //导航条颜色
-    self.navigationController.navigationBar.barTintColor = iCodeNavigationBarColor;
-    self.view.backgroundColor = [UIColor whiteColor];
+//    self.title = @"便态";
+//    //设置navigationBar不透明
+//    self.navigationController.navigationBar.translucent = NO;
+//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+//    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+//    //导航条颜色
+//    self.navigationController.navigationBar.barTintColor = iCodeNavigationBarColor;
+//    self.view.backgroundColor = [UIColor whiteColor];
     //输入URL
     [self.view addSubview:self.tableView];
 }
@@ -77,7 +77,7 @@
 - (UITableView *)tableView{
     if (_tableView == nil) {
         CGFloat tableViewH =  self.view.bounds.size.height - 49;
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, tableViewH) style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,72, screenWidth, tableViewH) style:UITableViewStylePlain];
         _tableView = tableView;
         //防止tableView被tabBar遮挡
         _tableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, CGRectGetHeight(self.tabBarController.tabBar.frame), 0.0f);
