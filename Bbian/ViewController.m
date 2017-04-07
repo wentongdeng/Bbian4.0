@@ -12,9 +12,9 @@
 #import "MomentsTableViewCell.h"
 #import "MJRefresh.h"
 #import "TrendsPageViewController.h"
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate,MKMapViewDelegate>
 
-@property (nonatomic,strong)IBOutlet UITableView *tableView;
+@property (nonatomic,strong)UITableView *tableView;
 
 @property (nonatomic,strong) NSMutableArray *moments;      //数据模型
 @property (nonatomic,strong) NSMutableArray *momentFrames; //ViewModel(包含cell子控件的Frame)
@@ -32,10 +32,12 @@
     [self setData];
     [self setUI];
 }
--(IBAction)trends{
-    TrendsPageViewController *trends=[[TrendsPageViewController alloc]init];
-    [self.navigationController pushViewController:trends animated:YES];
-}
+//-(IBAction)trends{
+//    NSLog(@"看看有没有运行");
+//    TrendsPageViewController *trends=[[TrendsPageViewController alloc]init];
+//    UINavigationController *n = [[UINavigationController alloc] initWithRootViewController:trends];
+//    [self presentViewController:n animated:YES completion:nil];
+//}
 - (void)setUI{
 //    self.title = @"便态";
 //    //设置navigationBar不透明
@@ -46,11 +48,14 @@
 //    self.navigationController.navigationBar.barTintColor = iCodeNavigationBarColor;
 //    self.view.backgroundColor = [UIColor whiteColor];
     //输入URL
+    self.navigationController.navigationBar.barTintColor = iCodeNavigationBarColor;
     [self.view addSubview:self.tableView];
 }
-
+//将经纬度传入请求当中
 - (void)setData{
     _contentURL=@"http://localhost:8080/Bbian";
+    NSString* extendUrl=[NSString stringWithFormat:@"?latitude=%f&longitude=%f",_clocation.latitude,_clocation.longitude];
+    _contentURL=[_contentURL stringByAppendingString:extendUrl];
 }
 
 - (NSMutableArray *)moments{
@@ -77,7 +82,7 @@
 - (UITableView *)tableView{
     if (_tableView == nil) {
         CGFloat tableViewH =  self.view.bounds.size.height - 49;
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,72, screenWidth, tableViewH) style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,64, screenWidth, tableViewH) style:UITableViewStylePlain];
         _tableView = tableView;
         //防止tableView被tabBar遮挡
         _tableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, CGRectGetHeight(self.tabBarController.tabBar.frame), 0.0f);
@@ -146,5 +151,19 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
+-(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+    
+    NSLog(@"%@",userLocation);
+    //设置地图显示范围(如果不进行区域设置会自动显示区域范围并指定当前用户位置为地图中心点)
+    //    MKCoordinateSpan span=MKCoordinateSpanMake(0.01, 0.01);
+    //    MKCoordinateRegion region=MKCoordinateRegionMake(userLocation.location.coordinate, span);
+    //    [_mapView setRegion:region animated:true];
+    _clocation=[userLocation coordinate];
+    //    if ((_clocation.longitude=0.0000000)||(_clocation.latitude=0.0000000)) {
+    //        NSLog(@"经纬度再次获取失败");
+    //    }
+    //    [self addAnnotation];
+    //    NSLog(@"%f and %f",_clocation.latitude,_clocation.longitude);
+}
 
 @end

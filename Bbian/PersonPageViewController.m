@@ -7,8 +7,9 @@
 //
 
 #import "PersonPageViewController.h"
-
+#import "MysolidPageViewController.h"
 @interface PersonPageViewController ()
+
 
 @end
 
@@ -24,7 +25,10 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
-
+//-(IBAction)solid{
+//    MysolidPageViewController * solid=[[MysolidPageViewController alloc]init];
+//    
+//}
 /*
 #pragma mark - Navigation
 

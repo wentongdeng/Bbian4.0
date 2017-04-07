@@ -57,6 +57,7 @@
    
     //CLLocationCoordinate2D location1=CLLocationCoordinate2DMake(43.81755895, 125.27000521);
     KCAnnotation *annotation1=[[KCAnnotation alloc]init];
+//    [annotation1 setValuesForKeysWithDictionary:<#(nonnull NSDictionary<NSString *,id> *)#>]
     annotation1.title=_solidTitle;
     annotation1.subtitle=_solidDescibe;
     annotation1.coordinate=_clocation;
@@ -71,12 +72,12 @@
 #pragma mark 显示大头针时调用，注意方法中的annotation参数是即将显示的大头针对象
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
     //由于当前位置的标注也是一个大头针，所以此时需要判断，此代理方法返回nil使用默认大头针视图
-    if (annotation == mapView.userLocation){
-        NSLog(@"user看看谁先进来");
-        return nil;
-    }
+//    if (annotation == mapView.userLocation){
+//        NSLog(@"user看看谁先进来");
+//        return nil;
+//    }
     if ([annotation isKindOfClass:[KCAnnotation class]]) {
-        NSLog(@"那就走着瞧");
+//        NSLog(@"那就走着瞧");
         static NSString *key1=@"AnnotationKey1";
         MKAnnotationView *annotationView=[_mapView dequeueReusableAnnotationViewWithIdentifier:key1];
         //如果缓存池中不存在则新建

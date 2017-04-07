@@ -7,7 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		F31397731E8CA6D500F4B76E /* IMG_1034.png in Resources */ = {isa = PBXBuildFile; fileRef = F31397721E8CA6D500F4B76E /* IMG_1034.png */; };
+		F30C5B4D1E924B8300D473F2 /* searchController.m in Sources */ = {isa = PBXBuildFile; fileRef = F30C5B4C1E924B8300D473F2 /* searchController.m */; };
 		F33B0A1F1E82B11C00574C26 /* MomentViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F33B0A1C1E82B11C00574C26 /* MomentViewModel.m */; };
 		F33B0A201E82B11C00574C26 /* Moments.m in Sources */ = {isa = PBXBuildFile; fileRef = F33B0A1E1E82B11C00574C26 /* Moments.m */; };
 		F33B0A271E82B15200574C26 /* MomentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F33B0A221E82B15200574C26 /* MomentsTableViewCell.m */; };
@@ -215,7 +215,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		F31397721E8CA6D500F4B76E /* IMG_1034.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = IMG_1034.png; sourceTree = "<group>"; };
+		F30C5B4B1E924B8300D473F2 /* searchController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = searchController.h; sourceTree = "<group>"; };
+		F30C5B4C1E924B8300D473F2 /* searchController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = searchController.m; sourceTree = "<group>"; };
 		F33B0A1B1E82B11C00574C26 /* MomentViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentViewModel.h; sourceTree = "<group>"; };
 		F33B0A1C1E82B11C00574C26 /* MomentViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentViewModel.m; sourceTree = "<group>"; };
 		F33B0A1D1E82B11C00574C26 /* Moments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moments.h; sourceTree = "<group>"; };
@@ -461,6 +462,47 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		F30C5B461E92499C00D473F2 /* SearchPage */ = {
+			isa = PBXGroup;
+			children = (
+				F30C5B4A1E9249D000D473F2 /* ViewController */,
+				F30C5B491E9249C200D473F2 /* Model */,
+				F30C5B481E9249B800D473F2 /* View */,
+				F30C5B471E9249AD00D473F2 /* Tool */,
+			);
+			name = SearchPage;
+			sourceTree = "<group>";
+		};
+		F30C5B471E9249AD00D473F2 /* Tool */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Tool;
+			sourceTree = "<group>";
+		};
+		F30C5B481E9249B800D473F2 /* View */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
+		F30C5B491E9249C200D473F2 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		F30C5B4A1E9249D000D473F2 /* ViewController */ = {
+			isa = PBXGroup;
+			children = (
+				F30C5B4B1E924B8300D473F2 /* searchController.h */,
+				F30C5B4C1E924B8300D473F2 /* searchController.m */,
+			);
+			name = ViewController;
+			sourceTree = "<group>";
+		};
 		F33B0A8E1E82CBAC00574C26 /* DACircularProgress */ = {
 			isa = PBXGroup;
 			children = (
@@ -750,7 +792,6 @@
 			isa = PBXGroup;
 			children = (
 				F3D2E6B31E7BE0580078603C /* barber_brush_filled-25.png */,
-				F31397721E8CA6D500F4B76E /* IMG_1034.png */,
 				F3D2E6B11E7BE0450078603C /* apple_filled-25.png */,
 			);
 			name = Source;
@@ -780,6 +821,7 @@
 		F3BF08471E777287001171AF /* Bbian */ = {
 			isa = PBXGroup;
 			children = (
+				F30C5B461E92499C00D473F2 /* SearchPage */,
 				F346DDEA1E86B9B500D1BC98 /* barber_brush_filled-25.png */,
 				F346DDE81E86B9A800D1BC98 /* apple_filled-25.png */,
 				F33B0A8E1E82CBAC00574C26 /* DACircularProgress */,
@@ -1421,7 +1463,6 @@
 				F346DDE91E86B9A800D1BC98 /* apple_filled-25.png in Resources */,
 				F3D2E6B41E7BE0580078603C /* barber_brush_filled-25.png in Resources */,
 				F3BF08581E777287001171AF /* LaunchScreen.storyboard in Resources */,
-				F31397731E8CA6D500F4B76E /* IMG_1034.png in Resources */,
 				F3BF08551E777287001171AF /* Assets.xcassets in Resources */,
 				F36614B51E81698E00747B38 /* MJRefresh.bundle in Resources */,
 				F3BF08531E777287001171AF /* Main.storyboard in Resources */,
@@ -1575,6 +1616,7 @@
 				F36614B71E81698E00747B38 /* NSBundle+MJRefresh.m in Sources */,
 				F3D2E6CF1E7BE8340078603C /* UIRefreshControl+AFNetworking.m in Sources */,
 				F3BF08BA1E778632001171AF /* MysolidPageViewController.m in Sources */,
+				F30C5B4D1E924B8300D473F2 /* searchController.m in Sources */,
 				F366146E1E81694100747B38 /* UIImage+WebP.m in Sources */,
 				F3BF089D1E777D5C001171AF /* TrendsPageViewController.m in Sources */,
 				F36614681E81694100747B38 /* SDWebImageDownloaderOperation.m in Sources */,
