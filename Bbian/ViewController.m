@@ -1,9 +1,9 @@
 //
 //  ViewController.m
-//  Bbian
+//  SoolyMomentCell
 //
-//  Created by dengwt on 2017/3/14.
-//  Copyright © 2017年 dengwt. All rights reserved.
+//  Created by SoolyChristina on 2016/11/25.
+//  Copyright © 2016年 SoolyChristina. All rights reserved.
 //
 
 #import "ViewController.h"
@@ -11,57 +11,43 @@
 #import "Moments.h"
 #import "MomentsTableViewCell.h"
 #import "MJRefresh.h"
-#import "TrendsPageViewController.h"
-@interface ViewController ()<UITableViewDataSource,UITableViewDelegate,UINavigationControllerDelegate,MKMapViewDelegate>
+@interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
-@property (nonatomic,strong)UITableView *tableView;
+@property (nonatomic,strong) UITableView *tableView;
 
 @property (nonatomic,strong) NSMutableArray *moments;      //数据模型
 @property (nonatomic,strong) NSMutableArray *momentFrames; //ViewModel(包含cell子控件的Frame)
-@property (nonatomic,strong)NSString *contentURL;
+
 @end
 
 @implementation ViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
-    
-
-    //注意顺序
-    [self setData];
     [self setUI];
+    [self setData];
 }
-//-(IBAction)trends{
-//    NSLog(@"看看有没有运行");
-//    TrendsPageViewController *trends=[[TrendsPageViewController alloc]init];
-//    UINavigationController *n = [[UINavigationController alloc] initWithRootViewController:trends];
-//    [self presentViewController:n animated:YES completion:nil];
-//}
+
 - (void)setUI{
-//    self.title = @"便态";
-//    //设置navigationBar不透明
-//    self.navigationController.navigationBar.translucent = NO;
-//    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
-//    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
-//    //导航条颜色
-//    self.navigationController.navigationBar.barTintColor = iCodeNavigationBarColor;
-//    self.view.backgroundColor = [UIColor whiteColor];
-    //输入URL
+    self.title = @"便态";
+    //设置navigationBar不透明
+    self.navigationController.navigationBar.translucent = NO;
+    [self.navigationController.navigationBar setBackgroundImage:[[UIImage alloc] init] forBarMetrics:UIBarMetricsDefault];
+    [self.navigationController.navigationBar setShadowImage:[[UIImage alloc] init]];
+    //导航条颜色
     self.navigationController.navigationBar.barTintColor = iCodeNavigationBarColor;
+    self.view.backgroundColor = [UIColor whiteColor];
     [self.view addSubview:self.tableView];
 }
-//将经纬度传入请求当中
+
 - (void)setData{
-    _contentURL=@"http://localhost:8080/Bbian";
-    NSString* extendUrl=[NSString stringWithFormat:@"?latitude=%f&longitude=%f",_clocation.latitude,_clocation.longitude];
-    _contentURL=[_contentURL stringByAppendingString:extendUrl];
-}
+    
+   }
 
 - (NSMutableArray *)moments{
     if (!_moments) {
         _moments = [NSMutableArray array];
-        _moments = [Moments moments:_contentURL];
+        _moments = [Moments moments];
     }
     return _moments;
 }
@@ -82,7 +68,7 @@
 - (UITableView *)tableView{
     if (_tableView == nil) {
         CGFloat tableViewH =  self.view.bounds.size.height - 49;
-        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0,64, screenWidth, tableViewH) style:UITableViewStylePlain];
+        UITableView *tableView = [[UITableView alloc] initWithFrame:CGRectMake(0, 0, screenWidth, tableViewH) style:UITableViewStylePlain];
         _tableView = tableView;
         //防止tableView被tabBar遮挡
         _tableView.contentInset = UIEdgeInsetsMake(0.0f, 0.0f, CGRectGetHeight(self.tabBarController.tabBar.frame), 0.0f);
@@ -92,7 +78,6 @@
         _tableView.backgroundColor = [UIColor grayColor];
         _tableView.backgroundColor = iCodeTableviewBgColor;
         //下拉刷新
-        //怎么样传递参数
         _tableView.mj_header = [MJRefreshNormalHeader headerWithRefreshingTarget:self refreshingAction:@selector(loadNewData)];
         [_tableView.mj_header beginRefreshing];
     }
@@ -102,18 +87,29 @@
 #pragma mark - 加载最新数据
 
 - (void)loadNewData{
-    //模拟增加数据
-    for (Moments *moment in self.moments) {
-        MomentViewModel *momentFrames = [[MomentViewModel alloc] init];
-        momentFrames.moment = moment;
-        [_momentFrames addObject:momentFrames];
-    }
-    [self.tableView reloadData];
-    [self.tableView.mj_header endRefreshing];
-    
+    //增加数据
+    [self reveicefromServer:@"http://localhost:8080/Bian04/listExtendMassage"];
 }
 
+-(void)loadData:(NSArray*)data{
+    if(data!=nil){
+        for (Moments *moment in [Moments loadmoments:data]) {
+            MomentViewModel *momentFrames = [[MomentViewModel alloc] init];
+            momentFrames.moment = moment;
+            [_momentFrames addObject:momentFrames];
+        }
+    }else{
+        for (Moments *moment in [Moments moments]) {
+            MomentViewModel *momentFrames = [[MomentViewModel alloc] init];
+            momentFrames.moment = moment;
+            [_momentFrames addObject:momentFrames];
+        }
+    }
+    
+    [self.tableView reloadData];
+    [self.tableView.mj_header endRefreshing];
 
+}
 #pragma mark - tableView的方法
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView{
@@ -151,19 +147,46 @@
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
--(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
+- (void)reveicefromServer:(NSString*)url{
+    //    NSString *cerPath = [[NSBundle mainBundle] pathForResource:@"cacert" ofType:@"cer"];
+    //    NSData *cerData = [NSData dataWithContentsOfFile:cerPath];
+    //    NSArray *cerSet = [[NSArray alloc] initWithObjects:cerData, nil];
+    //    AFSecurityPolicy *securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeNone];
+    //    securityPolicy = [AFSecurityPolicy policyWithPinningMode:AFSSLPinningModeCertificate];    [securityPolicy setAllowInvalidCertificates:YES];
+    //   [securityPolicy setPinnedCertificates:cerSet];
+    //    securityPolicy.validatesDomainName = NO;
     
-    NSLog(@"%@",userLocation);
-    //设置地图显示范围(如果不进行区域设置会自动显示区域范围并指定当前用户位置为地图中心点)
-    //    MKCoordinateSpan span=MKCoordinateSpanMake(0.01, 0.01);
-    //    MKCoordinateRegion region=MKCoordinateRegionMake(userLocation.location.coordinate, span);
-    //    [_mapView setRegion:region animated:true];
-    _clocation=[userLocation coordinate];
-    //    if ((_clocation.longitude=0.0000000)||(_clocation.latitude=0.0000000)) {
-    //        NSLog(@"经纬度再次获取失败");
-    //    }
-    //    [self addAnnotation];
-    //    NSLog(@"%f and %f",_clocation.latitude,_clocation.longitude);
-}
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    //    [manager setSecurityPolicy:securityPolicy];
+    //设置可接受的数据类型
+    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json",@"text/html",@"image/jpeg",@"image/png",@"application/octet-stream",@"text/json",nil];
+    
+    manager.requestSerializer=[AFHTTPRequestSerializer serializer];
+    manager.responseSerializer=[AFHTTPResponseSerializer serializer];
+    //用一个变量去接受结果分析结果然后返回yes or no
+    AFSecurityPolicy *securityPolicy = [AFSecurityPolicy defaultPolicy];
+    securityPolicy.allowInvalidCertificates = YES;
+    manager.securityPolicy = securityPolicy;
+    
+    [manager GET:url parameters:nil progress:^(NSProgress * _Nonnull downloadProgress) {
+        
+    }
+         success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+             
+             NSLog(@"接收成功！！");
+            
+             NSArray* data=[NSJSONSerialization JSONObjectWithData:responseObject options:NSJSONReadingMutableContainers error:nil];
+             NSLog(@"%@",data);
+             [self loadData:data];
+         }
+     
+         failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull   error) {
+             NSLog(@"接收失败，%@",error);
+             //             NSLog(@"%@",error);  //这里打印错误信息
+             
+         }];
+    
+    }
+
 
 @end

@@ -32,13 +32,13 @@
     // Do any additional setup after loading the view.
 }
 -(NSArray*)content{
-    NSArray* con=[[[ReceivefromServer alloc]init] reveicefromServer:url];
+//    NSArray* con=[[[ReceivefromServer alloc]init] reveicefromServer:url];
     NSMutableArray* arr=[[NSMutableArray alloc]init];
-    for(NSDictionary* dic in con){
-        KCAnnotation *annotation=[[KCAnnotation alloc]init];
-        [annotation setValuesForKeysWithDictionary:dic];
-        [arr addObject:annotation];
-    }
+//    for(NSDictionary* dic in con){
+//        KCAnnotation *annotation=[[KCAnnotation alloc]init];
+//        [annotation setValuesForKeysWithDictionary:dic];
+//        [arr addObject:annotation];
+//    }
     return arr;
 }
 -(void)setUI{

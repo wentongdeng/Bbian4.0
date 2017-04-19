@@ -60,13 +60,13 @@
     }
 }
 -(NSArray*)content{
-    NSArray *dicArray=[[[ReceivefromServer alloc]init]reveicefromServer:_url];
+//    NSArray *dicArray=[[[ReceivefromServer alloc]init]reveicefromServer:_url];
     NSMutableArray *arr = [NSMutableArray array];
-    for (NSDictionary *dic in dicArray) {
-        KCAnnotation *annotation=[[KCAnnotation alloc]init];
-        [annotation setValuesForKeysWithDictionary:dic];
-        [arr addObject:annotation];
-    }
+//    for (NSDictionary *dic in dicArray) {
+//        KCAnnotation *annotation=[[KCAnnotation alloc]init];
+//        [annotation setValuesForKeysWithDictionary:dic];
+//        [arr addObject:annotation];
+//    }
     return arr;
 }
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{

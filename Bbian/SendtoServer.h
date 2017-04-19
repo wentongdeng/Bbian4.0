@@ -10,7 +10,7 @@
 #import <UIKit/UIKit.h>
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
-#import "Networking/Networking.h"
+#import "AFNetworking.h"
 
 @interface SendtoServer : NSObject
 //应该把照片拍摄的时间加入进去，为了避免麻烦还是用系统时间好了，以后再根据需要改进

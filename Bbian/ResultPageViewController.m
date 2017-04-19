@@ -53,9 +53,7 @@
 
 #pragma mark 添加大头针
 -(void)addAnnotation{
-    //CLLocationCoordinate2D location1=_location.coordinate;
-   
-    //CLLocationCoordinate2D location1=CLLocationCoordinate2DMake(43.81755895, 125.27000521);
+    
     KCAnnotation *annotation1=[[KCAnnotation alloc]init];
 //    [annotation1 setValuesForKeysWithDictionary:<#(nonnull NSDictionary<NSString *,id> *)#>]
     annotation1.title=_solidTitle;

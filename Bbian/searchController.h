@@ -13,7 +13,6 @@
 #import "MJRefresh.h"
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
-#import "ReceivefromServer.h"
 #import "KCAnnotation.h"
 
 @interface searchController : UIViewController

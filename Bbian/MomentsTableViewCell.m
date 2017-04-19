@@ -8,7 +8,7 @@
 
 #import "MomentsTableViewCell.h"
 #import "MomentsBodyView.h"
-#import "momentsToolBarView.h"
+#import "MomentsToolBarView.h"
 #import "MomentViewModel.h"
 
 @interface MomentsTableViewCell()

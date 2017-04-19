@@ -43,6 +43,7 @@
     self.bodyTimeFrame = (CGRect){{timeX,timeY},timeSize};
     
     //正文
+    
     CGFloat textX = circleCellMargin;
     CGFloat textY = CGRectGetMaxY(self.bodyIconFrame) + circleCellMargin;
     CGFloat textW = circleCellWidth - circleCellMargin * 2;
