@@ -17,4 +17,7 @@
 //类方法实现图片上传，附图片拍摄的地点，标题，描述等等
 
 +(BOOL)sendMessage:(UIImage*)image title:(NSString*)title describe:(NSString*)describe url:(NSString*)url location:(CLLocation*)location;
++(BOOL)sendMessage:(NSString*)title describe:(NSString*)describe url:(NSString*)url location:(CLLocation*)location;
++(BOOL)sendMessage:(NSString*)title describe:(NSString*)describe url:(NSString*)url;
++(BOOL)sendMessage:(NSString*)title describe:(NSString*)describe url:(NSString*)url user:(NSString*)user;
 @end

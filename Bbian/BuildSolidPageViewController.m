@@ -70,28 +70,7 @@
 -(void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info{
     UIImage* chosenImage = info[UIImagePickerControllerEditedImage];
     self.image.image = chosenImage;
-    //看情况了，如果可以根据这个获取的话就用这个，不能就用定位了
-    //连取两次字典，可以取出里面经纬度和时间
-//    NSURL *referenceURL = [info objectForKey:UIImagePickerControllerReferenceURL];
-//    ALAssetsLibrary *library = [[ALAssetsLibrary alloc] init];
-//    [library assetForURL:referenceURL resultBlock:^(ALAsset *asset) {
-//        ALAssetRepresentation *rep = [asset defaultRepresentation];
-//        NSDictionary *metadata = rep.metadata;
-//        
-//        //NSLog(@"%@", metadata);
-//        NSDictionary *gps=[metadata objectForKey:@"GPS"];
-//        NSString *la=[gps objectForKey:@"Latitude"];
-//        NSString *lo=[gps objectForKey:@"Longitude"];
-//        if((la==nil)||(la.length==0)||(lo==nil)||(lo.length==0)){
-//            NSLog(@"经纬度获取失败");
-//        }
-//        double lat=la.doubleValue;
-//        double lon=lo.doubleValue;
-//        _location=[_location initWithLatitude:lat longitude:lon];
-//        
-//    } failureBlock:^(NSError *error) {
-//        // error handling
-//    }];
+    
     
     [picker dismissViewControllerAnimated:YES completion:nil];
 }

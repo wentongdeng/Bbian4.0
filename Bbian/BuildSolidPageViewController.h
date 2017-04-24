@@ -7,10 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import <AssetsLibrary/ALAssetsLibrary.h>
-//#import <AssetsLibrary/ALAssetsGroup.h>
-//
-//#import <AssetsLibrary/ALAssetRepresentation.h>
+
 #import <CoreLocation/CoreLocation.h>
 #import "ResultPageViewController.h"
 @class BuildSolidPageViewController;

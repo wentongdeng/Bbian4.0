@@ -13,7 +13,7 @@
     MKMapView *_mapView;
     }
 
-
+@property NSInteger count;
 @end
 
 @implementation ResultPageViewController
@@ -21,9 +21,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.navigationController.navigationBar.barTintColor = iCodeNavigationBarColor;
-    //可能发早了
+    _count=1;
     [self initGUI];
-    //[SendtoServer sendMessage:_solidImage title:_solidTitle describe:_solidDescibe url:@"http//:localhost" location:_location];
 }
 
 #pragma mark 添加地图控件
@@ -55,7 +54,6 @@
 -(void)addAnnotation{
     
     KCAnnotation *annotation1=[[KCAnnotation alloc]init];
-//    [annotation1 setValuesForKeysWithDictionary:<#(nonnull NSDictionary<NSString *,id> *)#>]
     annotation1.title=_solidTitle;
     annotation1.subtitle=_solidDescibe;
     annotation1.coordinate=_clocation;
@@ -70,12 +68,10 @@
 #pragma mark 显示大头针时调用，注意方法中的annotation参数是即将显示的大头针对象
 -(MKAnnotationView *)mapView:(MKMapView *)mapView viewForAnnotation:(id<MKAnnotation>)annotation{
     //由于当前位置的标注也是一个大头针，所以此时需要判断，此代理方法返回nil使用默认大头针视图
-//    if (annotation == mapView.userLocation){
-//        NSLog(@"user看看谁先进来");
-//        return nil;
-//    }
+   if (annotation == mapView.userLocation){
+        return nil;
+    }
     if ([annotation isKindOfClass:[KCAnnotation class]]) {
-//        NSLog(@"那就走着瞧");
         static NSString *key1=@"AnnotationKey1";
         MKAnnotationView *annotationView=[_mapView dequeueReusableAnnotationViewWithIdentifier:key1];
         //如果缓存池中不存在则新建
@@ -97,7 +93,6 @@
     }
 }
 -(void)mapView:(MKMapView *)mapView didUpdateUserLocation:(MKUserLocation *)userLocation{
-    
     NSLog(@"%@",userLocation);
     //设置地图显示范围(如果不进行区域设置会自动显示区域范围并指定当前用户位置为地图中心点)
     //    MKCoordinateSpan span=MKCoordinateSpanMake(0.01, 0.01);
@@ -107,7 +102,13 @@
 //    if ((_clocation.longitude=0.0000000)||(_clocation.latitude=0.0000000)) {
 //        NSLog(@"经纬度再次获取失败");
 //    }
-    [self addAnnotation];
+    if (_count<2) {
+        [self addAnnotation];
+        [SendtoServer sendMessage:_solidImage title:_solidTitle describe:_solidDescibe url:@"http://localhost:8080/Bian04/listExtendMassage" location:_location];
+        [_locationManager stopUpdatingLocation];
+    }
+    _count=_count+1;
+    
     NSLog(@"%f and %f",_clocation.latitude,_clocation.longitude);
 }
 

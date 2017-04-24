@@ -93,6 +93,19 @@
 
 -(void)setData{
     self.iconView.image = [UIImage imageNamed:self.momentFrames.moment.icon];
+//    NSStringEncoding encoding = CFStringConvertEncodingToNSStringEncoding(kCFStringEncodingGB_18030_2000);
+//    const char* c_test = [self.momentFrames.moment.name UTF8String];
+//    
+//    int nLen = (int)strlen(c_test);
+//    
+//    NSString* str = [[NSString alloc]initWithBytes:c_test length:nLen encoding:encoding ];
+    [self.momentFrames.moment.name stringByRemovingPercentEncoding];
+    [self.momentFrames.moment.text stringByRemovingPercentEncoding];
+    [self.momentFrames.moment.time stringByRemovingPercentEncoding];
+//    unsigned long encode = CFStringConvertEncodingToNSStringEncoding(NSUTF8StringEncoding);
+//    NSData *responseData = [self.momentFrames.moment.name dataUsingEncoding:NSUTF8StringEncoding];
+//    NSString *str = [[NSString alloc]initWithBytes:[responseData bytes] length:[responseData length] encoding:NSUTF8StringEncoding];
+    
     self.nameLabel.text = self.momentFrames.moment.name;
     self.textLabel.text = self.momentFrames.moment.text;
     self.timeLabel.text = self.momentFrames.moment.time;

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
-
+#import "SendtoServer.h"
+#import <CoreLocation/CoreLocation.h>
+#import <MapKit/MapKit.h>
 @interface MyTrendsPageViewController : UIViewController
-
 @end
