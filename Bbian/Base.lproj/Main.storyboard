@@ -146,6 +146,7 @@
                                 <state key="normal" title="便民"/>
                                 <connections>
                                     <action selector="trendsButton:" destination="emu-Td-Gii" eventType="touchUpInside" id="3X3-cr-E2a"/>
+                                    <segue destination="IBA-0c-Zol" kind="push" id="UAR-gp-i2L"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="2" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Jy0-d4-VIZ">
@@ -155,6 +156,7 @@
                                 <state key="normal" title="共享"/>
                                 <connections>
                                     <action selector="trendsButton:" destination="emu-Td-Gii" eventType="touchUpInside" id="X1z-mU-x1G"/>
+                                    <segue destination="IBA-0c-Zol" kind="push" id="UfG-is-HCf"/>
                                 </connections>
                             </button>
                             <button opaque="NO" tag="3" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bv1-ro-V2P">
@@ -245,6 +247,7 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
+                    <navigationItem key="navigationItem" id="fWg-Da-P0D"/>
                     <connections>
                         <outlet property="mapView" destination="Mek-Ma-6gU" id="ocM-JK-aOc"/>
                     </connections>
@@ -549,4 +552,7 @@
             <point key="canvasLocation" x="244" y="-2872"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="UfG-is-HCf"/>
+    </inferredMetricsTieBreakers>
 </document>

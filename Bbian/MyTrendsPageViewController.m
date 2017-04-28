@@ -31,7 +31,7 @@
 -(IBAction)build{
     if((_mtitle!=nil)&&(_massage!=nil)&&(_mtitle.text.length!=0)&&(_massage.text.length!=0)){
         //根据不同的数据使用不同的方法和地址
-        [SendtoServer sendMessage:_mtitle.text describe:_massage.text url:@"http://localhost:8080/Bian04/receiveMassage" user:@"马化腾"];
+        [SendtoServer sendMessage:_mtitle.text describe:_massage.text url:@"http://10.151.254.125:8080/Bian07/receiveMassage" userid:@"5"];
 
     }else{
         [self alertView];

@@ -14,6 +14,7 @@
 #import <CoreLocation/CoreLocation.h>
 #import <MapKit/MapKit.h>
 #import "KCAnnotation.h"
+#import "AFNetworking.h"
 
 @interface searchController : UIViewController
 

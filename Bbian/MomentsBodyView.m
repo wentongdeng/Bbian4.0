@@ -99,9 +99,9 @@
 //    int nLen = (int)strlen(c_test);
 //    
 //    NSString* str = [[NSString alloc]initWithBytes:c_test length:nLen encoding:encoding ];
-    [self.momentFrames.moment.name stringByRemovingPercentEncoding];
-    [self.momentFrames.moment.text stringByRemovingPercentEncoding];
-    [self.momentFrames.moment.time stringByRemovingPercentEncoding];
+//    [self.momentFrames.moment.name stringByRemovingPercentEncoding];
+//    [self.momentFrames.moment.text stringByRemovingPercentEncoding];
+//    [self.momentFrames.moment.time stringByRemovingPercentEncoding];
 //    unsigned long encode = CFStringConvertEncodingToNSStringEncoding(NSUTF8StringEncoding);
 //    NSData *responseData = [self.momentFrames.moment.name dataUsingEncoding:NSUTF8StringEncoding];
 //    NSString *str = [[NSString alloc]initWithBytes:[responseData bytes] length:[responseData length] encoding:NSUTF8StringEncoding];

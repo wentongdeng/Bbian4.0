@@ -32,6 +32,11 @@
         [_locationManager requestWhenInUseAuthorization];
         [_locationManager startUpdatingLocation];
     }
+    //用户位置追踪(用户位置追踪用于标记用户当前位置，此时会调用定位服务)
+    _mapView.userTrackingMode=MKUserTrackingModeFollow;
+    
+    //设置地图类型
+    _mapView.mapType=MKMapTypeStandard;
     [self setData];
     [self setUI];
     // Do any additional setup after loading the view.
@@ -109,18 +114,23 @@
     }else if (sender.tag==1){
         searchController *searchPage=[[searchController alloc]init];
         searchPage.url=@"localhost";
+//        [self.navigationController pushViewController:searchPage animated:YES];
     }else if (sender.tag==2){
         searchController *searchPage=[[searchController alloc]init];
         searchPage.url=@"localhost";
+//        [self.navigationController pushViewController:searchPage animated:YES];
     }else if (sender.tag==3){
         searchController *searchPage=[[searchController alloc]init];
         searchPage.url=@"localhost";
+//        [self.navigationController pushViewController:searchPage animated:YES];
     }else if (sender.tag==4){
         searchController *searchPage=[[searchController alloc]init];
         searchPage.url=@"localhost";
+        [self.navigationController pushViewController:searchPage animated:YES];
     }else if (sender.tag==5){
         searchController *searchPage=[[searchController alloc]init];
         searchPage.url=@"localhost";
+        [self.navigationController pushViewController:searchPage animated:YES];
     }
 }
 

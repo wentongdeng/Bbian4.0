@@ -23,6 +23,8 @@
 		F30E57DE1EA5CECA00CDE45F /* UIProgressView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F30E57CD1EA5CECA00CDE45F /* UIProgressView+AFNetworking.m */; };
 		F30E57DF1EA5CECA00CDE45F /* UIRefreshControl+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F30E57CF1EA5CECA00CDE45F /* UIRefreshControl+AFNetworking.m */; };
 		F30E57E01EA5CECA00CDE45F /* UIWebView+AFNetworking.m in Sources */ = {isa = PBXBuildFile; fileRef = F30E57D11EA5CECA00CDE45F /* UIWebView+AFNetworking.m */; };
+		F32E24141EAE32D20046FBB8 /* NSArray+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F32E24111EAE32D20046FBB8 /* NSArray+Extension.m */; };
+		F32E24151EAE32D20046FBB8 /* NSDictionary+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = F32E24131EAE32D20046FBB8 /* NSDictionary+Extension.m */; };
 		F33B0A1F1E82B11C00574C26 /* MomentViewModel.m in Sources */ = {isa = PBXBuildFile; fileRef = F33B0A1C1E82B11C00574C26 /* MomentViewModel.m */; };
 		F33B0A201E82B11C00574C26 /* Moments.m in Sources */ = {isa = PBXBuildFile; fileRef = F33B0A1E1E82B11C00574C26 /* Moments.m */; };
 		F33B0A271E82B15200574C26 /* MomentsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = F33B0A221E82B15200574C26 /* MomentsTableViewCell.m */; };
@@ -221,6 +223,10 @@
 		F30E57CF1EA5CECA00CDE45F /* UIRefreshControl+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIRefreshControl+AFNetworking.m"; sourceTree = "<group>"; };
 		F30E57D01EA5CECA00CDE45F /* UIWebView+AFNetworking.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIWebView+AFNetworking.h"; sourceTree = "<group>"; };
 		F30E57D11EA5CECA00CDE45F /* UIWebView+AFNetworking.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIWebView+AFNetworking.m"; sourceTree = "<group>"; };
+		F32E24101EAE32D20046FBB8 /* NSArray+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSArray+Extension.h"; sourceTree = "<group>"; };
+		F32E24111EAE32D20046FBB8 /* NSArray+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSArray+Extension.m"; sourceTree = "<group>"; };
+		F32E24121EAE32D20046FBB8 /* NSDictionary+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSDictionary+Extension.h"; sourceTree = "<group>"; };
+		F32E24131EAE32D20046FBB8 /* NSDictionary+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSDictionary+Extension.m"; sourceTree = "<group>"; };
 		F33B0A1B1E82B11C00574C26 /* MomentViewModel.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MomentViewModel.h; sourceTree = "<group>"; };
 		F33B0A1C1E82B11C00574C26 /* MomentViewModel.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MomentViewModel.m; sourceTree = "<group>"; };
 		F33B0A1D1E82B11C00574C26 /* Moments.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Moments.h; sourceTree = "<group>"; };
@@ -1006,6 +1012,10 @@
 		F3BF08931E777C9E001171AF /* Model */ = {
 			isa = PBXGroup;
 			children = (
+				F32E24101EAE32D20046FBB8 /* NSArray+Extension.h */,
+				F32E24111EAE32D20046FBB8 /* NSArray+Extension.m */,
+				F32E24121EAE32D20046FBB8 /* NSDictionary+Extension.h */,
+				F32E24131EAE32D20046FBB8 /* NSDictionary+Extension.m */,
 				F33B0A1B1E82B11C00574C26 /* MomentViewModel.h */,
 				F33B0A1C1E82B11C00574C26 /* MomentViewModel.m */,
 				F33B0A1D1E82B11C00574C26 /* Moments.h */,
@@ -1502,6 +1512,7 @@
 				F33B0A721E82CAFF00574C26 /* PYPhotoCell.m in Sources */,
 				F33B0A731E82CAFF00574C26 /* PYPhotosView.h in Sources */,
 				F33B0A741E82CAFF00574C26 /* PYPhotosView.m in Sources */,
+				F32E24151EAE32D20046FBB8 /* NSDictionary+Extension.m in Sources */,
 				F33B0A751E82CAFF00574C26 /* PYPhotoView.h in Sources */,
 				F33B0A761E82CAFF00574C26 /* PYPhotoView.m in Sources */,
 				F33B0A771E82CAFF00574C26 /* OperationSqliteTools.h in Sources */,
@@ -1548,6 +1559,7 @@
 				F30E57DF1EA5CECA00CDE45F /* UIRefreshControl+AFNetworking.m in Sources */,
 				F3BF08C81E778D60001171AF /* BuildSolidPageViewController.m in Sources */,
 				F36614AB1E81698E00747B38 /* MJRefreshHeader.m in Sources */,
+				F32E24141EAE32D20046FBB8 /* NSArray+Extension.m in Sources */,
 				F36614701E81694100747B38 /* UIImageView+WebCache.m in Sources */,
 				F36614711E81694100747B38 /* UIView+WebCacheOperation.m in Sources */,
 				F36614771E81696700747B38 /* MBProgressHUD.m in Sources */,
@@ -1721,7 +1733,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6733J8KFDB;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/dengwt/Documents/os/Bbian4.0/Bbian/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/dengwt/Documents/os/Bbian5.0/Bbian/PrefixHeader.pch;
 				INFOPLIST_FILE = Bbian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JLU.Bbian;
@@ -1735,7 +1747,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				DEVELOPMENT_TEAM = 6733J8KFDB;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
-				GCC_PREFIX_HEADER = /Users/dengwt/Documents/os/Bbian4.0/Bbian/PrefixHeader.pch;
+				GCC_PREFIX_HEADER = /Users/dengwt/Documents/os/Bbian5.0/Bbian/PrefixHeader.pch;
 				INFOPLIST_FILE = Bbian/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = JLU.Bbian;

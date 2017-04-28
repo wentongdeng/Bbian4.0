@@ -75,7 +75,7 @@
     manager.requestSerializer=[AFHTTPRequestSerializer serializer];
     manager.responseSerializer=[AFHTTPResponseSerializer serializer];
 //    NSData* da=[describe dataUsingEncoding:NSUTF8StringEncoding];
-    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     //开始上传
     //用一个变量去接受结果分析结果然后返回yes or no
     
@@ -98,11 +98,10 @@
     AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
     //设置可接受的数据类型
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json",@"text/html",@"image/jpeg",@"image/png",@"application/octet-stream",@"text/json",nil];
-    
     manager.requestSerializer=[AFHTTPRequestSerializer serializer];
     manager.responseSerializer=[AFHTTPResponseSerializer serializer];
     //    NSData* da=[describe dataUsingEncoding:NSUTF8StringEncoding];
-    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded" forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     //开始上传
     //用一个变量去接受结果分析结果然后返回yes or no
     
@@ -115,6 +114,34 @@
         [FormData appendPartWithFormData:ti name:@"title"];
         [FormData appendPartWithFormData:des name:@"text"];
             } progress:^(NSProgress * _Nonnull uploadProgress) {
+        
+    } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
+        NSLog(@"上传成功");
+    } failure:^(NSURLSessionDataTask * _Nullable task, NSError * _Nonnull error) {
+        NSLog(@"上传失败:%@",error);
+    }];
+    return YES;
+}
++(BOOL)sendMessage:(NSString*)title describe:(NSString*)describe url:(NSString*)url userid:(NSString*)userid{
+    AFHTTPSessionManager* manager=[AFHTTPSessionManager manager];
+    //设置可接受的数据类型
+    manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json",@"text/html",@"image/jpeg",@"image/png",@"application/octet-stream",@"text/json",nil];
+    manager.requestSerializer=[AFHTTPRequestSerializer serializer];
+    manager.responseSerializer=[AFHTTPResponseSerializer serializer];
+    //    NSData* da=[describe dataUsingEncoding:NSUTF8StringEncoding];
+    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
+    //开始上传
+    //用一个变量去接受结果分析结果然后返回yes or no
+    
+    [manager POST:url parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData>_Nonnull FormData) {
+        NSData *des=[describe dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *uid=[userid dataUsingEncoding:NSUTF8StringEncoding];
+        NSData *ti=[title dataUsingEncoding:NSUTF8StringEncoding];
+        NSLog(@"%@", describe);
+        [FormData appendPartWithFormData:uid name:@"userid"];
+        [FormData appendPartWithFormData:ti name:@"title"];
+        [FormData appendPartWithFormData:des name:@"text"];
+    } progress:^(NSProgress * _Nonnull uploadProgress) {
         
     } success:^(NSURLSessionDataTask * _Nonnull task, id  _Nullable responseObject) {
         NSLog(@"上传成功");

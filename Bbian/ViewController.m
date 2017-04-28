@@ -11,6 +11,7 @@
 #import "Moments.h"
 #import "MomentsTableViewCell.h"
 #import "MJRefresh.h"
+#import "NSArray+Extension.h"
 @interface ViewController ()<UITableViewDataSource,UITableViewDelegate>
 
 @property (nonatomic,strong) UITableView *tableView;
@@ -88,7 +89,7 @@
 
 - (void)loadNewData{
     //增加数据
-    [self reveicefromServer:@"http://64.137.170.167:8080/Bian04/listExtendMassage"];
+    [self reveicefromServer:@"http://10.151.254.125:8080/Bian07/listExtendMassage"];
 }
 
 -(void)loadData:(NSArray*)data{
@@ -160,7 +161,7 @@
     //    [manager setSecurityPolicy:securityPolicy];
     //设置可接受的数据类型
     manager.responseSerializer.acceptableContentTypes=[NSSet setWithObjects:@"application/json",@"text/html",@"image/jpeg",@"image/png",@"application/octet-stream",@"text/json",nil];
-    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded;charset=utf8" forHTTPHeaderField:@"Content-Type"];
+    [manager.requestSerializer setValue:@"application/x-www-form-urlencoded; charset=utf-8" forHTTPHeaderField:@"Content-Type"];
     manager.requestSerializer=[AFHTTPRequestSerializer serializer];
     manager.responseSerializer=[AFHTTPResponseSerializer serializer];
     //用一个变量去接受结果分析结果然后返回yes or no

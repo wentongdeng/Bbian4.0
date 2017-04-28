@@ -20,4 +20,5 @@
 +(BOOL)sendMessage:(NSString*)title describe:(NSString*)describe url:(NSString*)url location:(CLLocation*)location;
 +(BOOL)sendMessage:(NSString*)title describe:(NSString*)describe url:(NSString*)url;
 +(BOOL)sendMessage:(NSString*)title describe:(NSString*)describe url:(NSString*)url user:(NSString*)user;
++(BOOL)sendMessage:(NSString*)title describe:(NSString*)describe url:(NSString*)url userid:(NSString*)userid;
 @end
